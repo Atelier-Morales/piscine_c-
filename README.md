@@ -1,2 +1,2 @@
-# piscine_c-
+# piscine_cpp
 exercices de la piscine c++
