@@ -48,9 +48,8 @@ int	main(void) {
 					if (std::cin >> i) {
 						if (i > instance.contact || i < 0)
 							break ;
-						else {
+						else
 							contact[i].printFullContact();
-						}
 					}
 					else {
 						std::cout << "invalid input, exiting program" << std::endl;
@@ -59,9 +58,8 @@ int	main(void) {
 				}
 			}
 		}
-		else {
+		else
 			exit(1);
-		}
 	}
 	return (0);
 }
