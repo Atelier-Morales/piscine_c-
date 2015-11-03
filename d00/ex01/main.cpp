@@ -47,7 +47,7 @@ int	main(void) {
 				while (1) {
 					std::cout << "find a contact by index (type -1 to leave search) : ";
 					if (std::cin >> i) {
-						if (i > (instance.contact - 1)|| i < 0)
+						if (i > (instance.contact - 1) || i < 0)
 							break ;
 						else
 							contact[i].printFullContact();
