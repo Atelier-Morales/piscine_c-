@@ -44,6 +44,7 @@ class contact {
 
 		void	printContact(void) const;
 		void	printFullContact(void) const;
+		void	fillDetails(int pos);
 };
 
 #endif

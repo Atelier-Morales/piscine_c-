@@ -66,3 +66,40 @@ void	contact::printFullContact(void) const {
 	std::cout << this->underwear_color << std::endl;
 	std::cout << this->darkest_secret << std::endl;
 }
+
+void	contact::fillDetails(int pos) {
+	std::cout << "first name : ";
+	std::cin >> this->first_name;
+
+	std::cout << "last name : ";
+	std::cin >> this->last_name;
+
+	std::cout << "nickname : ";
+	std::cin >> this->nickname;
+
+	std::cout << "login : ";
+	std::cin >> this->login;
+
+	std::cout << "postal address : ";
+	std::cin >> this->postal_address;
+
+	std::cout << "email address : ";
+	std::cin >> this->email_address;
+
+	std::cout << "phone number : ";
+	std::cin >> this->phone_number;
+
+	std::cout << "birthday date : ";
+	std::cin >> this->birthday_date;
+
+	std::cout << "favorite meal : ";
+	std::cin >> this->favorite_meal;
+
+	std::cout << "underwear color : ";
+	std::cin >> this->underwear_color;
+
+	std::cout << "darkest secret : ";
+	std::cin >> this->darkest_secret;
+
+	this->nb = pos;
+}
