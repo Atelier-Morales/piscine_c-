@@ -19,7 +19,7 @@ int	main(void) {
 	phoneBook	instance;
 	int			i;
 	char		buf[512];
-	int     	len = 8;
+	const int     	len = 8;
 	contact		contact[len];
 
 	while (1) {
@@ -41,12 +41,13 @@ int	main(void) {
 					std::cout << "Too many contacts in phonebook" << std::endl;
 			}
 			else if (instance.checkInput(buf) == 3) {
+				std::cout << "     index | first name |  last name |   nickname | " << std::endl;
 				for (i = 0; i < instance.contact; i++)
 					contact[i].printContact();
 				while (1) {
 					std::cout << "find a contact by index (type -1 to leave search) : ";
 					if (std::cin >> i) {
-						if (i > instance.contact || i < 0)
+						if (i > (instance.contact - 1)|| i < 0)
 							break ;
 						else
 							contact[i].printFullContact();
