@@ -14,17 +14,17 @@
 #include "Pony.hpp"
 
 void	ponyOnTheStack(std::string name, std::string age, std::string type, std::string color) {
-	Pony	ponyHeap = Pony(name);
-	ponyHeap.setPony(age, type, color);
-	ponyHeap.ponySpeech();
+	Pony	ponyStack = Pony(name);
+	ponyStack.setPony(age, type, color);
+	ponyStack.ponySpeech();
 	return ;
 }
 
 void	ponyOnTheHeap(std::string name, std::string age, std::string type, std::string color) {
-	Pony	*ponyStack = new Pony(name);
-	ponyStack->setPony(age, type, color);
-	ponyStack->ponySpeech();
-	delete ponyStack;
+	Pony	*ponyHeap = new Pony(name);
+	ponyHeap->setPony(age, type, color);
+	ponyHeap->ponySpeech();
+	delete ponyHeap;
 	return ;
 }
 

@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.hpp                                         :+:      :+:    :+:   */
+/*   Logger.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmorales <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/04 11:14:39 by fmorales          #+#    #+#             */
-/*   Updated: 2015/11/04 11:14:42 by fmorales         ###   ########.fr       */
+/*   Created: 2015/11/04 14:49:40 by fmorales          #+#    #+#             */
+/*   Updated: 2015/11/04 14:49:41 by fmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 
-#ifndef WEAPON_HPP
-# define WEAPON_HPP
+#ifndef LOGGER_HPP
+# define LOGGER_HPP
 
-class Weapon
+class Logger
 {
 public:
-	Weapon(std::string const &type);
-	~Weapon();
-
-	std::string	const 	&getType() const;
-	void				setType(std::string type);
+	Logger();
+	~Logger();
+	void	log(std::string const & dest, std::string const & message);
 
 private:
-	std::string			_type;
+	void		_logToConsole(std::string const & input);
+	void		_logToFile(std::string const & input);
+	std::string	_makeLogEntry(std::string const & input);
+	std::string	_filename;
+
 };
 
 #endif

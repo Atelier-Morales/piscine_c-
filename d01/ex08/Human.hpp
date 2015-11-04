@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.hpp                                         :+:      :+:    :+:   */
+/*   Human.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmorales <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/04 11:14:39 by fmorales          #+#    #+#             */
-/*   Updated: 2015/11/04 11:14:42 by fmorales         ###   ########.fr       */
+/*   Created: 2015/11/04 11:39:28 by fmorales          #+#    #+#             */
+/*   Updated: 2015/11/04 11:39:30 by fmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 
-#ifndef WEAPON_HPP
-# define WEAPON_HPP
+#ifndef HUMAN_HPP
+# define HUMAN_HPP
 
-class Weapon
+class Human
 {
-public:
-	Weapon(std::string const &type);
-	~Weapon();
-
-	std::string	const 	&getType() const;
-	void				setType(std::string type);
-
 private:
-	std::string			_type;
+	void meleeAttack(std::string const & target);
+	void rangedAttack(std::string const & target);
+	void intimidatingShout(std::string const & target);
+
+public:
+	void action(std::string const & action_name, std::string const & target);
 };
 
 #endif

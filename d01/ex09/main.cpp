@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmorales <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/04 11:14:39 by fmorales          #+#    #+#             */
-/*   Updated: 2015/11/04 11:14:42 by fmorales         ###   ########.fr       */
+/*   Created: 2015/11/04 14:49:48 by fmorales          #+#    #+#             */
+/*   Updated: 2015/11/04 14:49:49 by fmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include "Logger.hpp"
 
-#ifndef WEAPON_HPP
-# define WEAPON_HPP
+int	main(void) {
+	Logger logAction;
 
-class Weapon
-{
-public:
-	Weapon(std::string const &type);
-	~Weapon();
+	logAction.log("logToConsole", "Ceci est un test sur la sortie standard");
+	logAction.log("logToConsole", "Ceci est un autre test sur la sortie standard");
+	logAction.log("logToFile", "Ceci est un test sur le fichier log");
+	logAction.log("logToFile", "Ceci est un autre test sur le fichier log");
 
-	std::string	const 	&getType() const;
-	void				setType(std::string type);
-
-private:
-	std::string			_type;
-};
-
-#endif
+	return (0);
+}
