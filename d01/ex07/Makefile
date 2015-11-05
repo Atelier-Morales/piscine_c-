@@ -17,7 +17,7 @@ FLAGS = -Wall -Wextra -Werror -Wno-unused
 all: $(NAME)
 
 $(NAME):
-	g++ $(FLAGS) -o $(NAME) $(SRC)
+	clang++ $(FLAGS) -o $(NAME) $(SRC)
 
 fclean:
 	rm -f $(NAME)

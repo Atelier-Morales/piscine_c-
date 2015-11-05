@@ -1,38 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.cpp                                          :+:      :+:    :+:   */
+/*   Fixed.class.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmorales <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/03 19:14:10 by fmorales          #+#    #+#             */
-/*   Updated: 2015/11/03 19:14:11 by fmorales         ###   ########.fr       */
+/*   Created: 2015/11/05 15:06:44 by fmorales          #+#    #+#             */
+/*   Updated: 2015/11/05 15:06:45 by fmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include "Brain.hpp"
 
-#define HEX "0123456789ABCDEF"
+#ifndef FIXED_CLASS_HPP
+# define FIXED_CLASS_HPP
 
-Brain::Brain() {
-	std::string		str;
-	long			address;
+class Fixed
+{
+public:
+	Fixed(void);
+	Fixed(Fixed const & src);
+	~Fixed(void);
 
-	address = (long)this;
-	while(address > 0)
-	{
-		str = HEX[(address % 16)] + str;
-		address /= 16;
-	}
-	this->_address = "0x"+str;
-	return ;
-}
+	Fixed &				operator=(Fixed const & rhs);
+	int					getRawBits(void) const;
+	void				setRawBits(int const raw);
 
-Brain::~Brain() {
-	return ;
-}
+private:
+	int					_fixedValue;
+	static const int	_fractBits;
+};
 
-std::string	Brain::identify() const {
-	return this->_address;
-}
+#endif
