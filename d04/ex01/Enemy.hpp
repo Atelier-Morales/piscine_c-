@@ -1,32 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   Enemy.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmorales <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/06 14:44:45 by fmorales          #+#    #+#             */
-/*   Updated: 2015/11/06 14:49:17 by fmorales         ###   ########.fr       */
+/*   Created: 2015/11/07 20:18:51 by fmorales          #+#    #+#             */
+/*   Updated: 2015/11/07 20:18:51 by fmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include "ClapTrap.hpp"
 
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+#ifndef ENEMY_HPP
+# define ENEMY_HPP
 
-class ScavTrap : public ClapTrap {
+class Enemy {
 public:
-	ScavTrap(std::string const & name);
-	ScavTrap(ScavTrap const & src);
-	~ScavTrap(void);
+	Enemy(int hp, std::string const & type);
+	Enemy(Enemy const & src);
+	virtual ~Enemy();
 
-	ScavTrap const & operator=(ScavTrap const & rhs);
-	void		challengeNewcomer(std::string const & target);
+	Enemy const &		operator=(Enemy const & rhs);
+	std::string const &	getType() const;
+	int 				getHP() const;
+	virtual void 		takeDamage(int i);
 
 private:
-	ScavTrap(void);
+	Enemy();
+
+protected:
+	int					_hp;
+	std::string			_type;
 };
 
 #endif

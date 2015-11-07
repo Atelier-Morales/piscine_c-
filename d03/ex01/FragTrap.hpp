@@ -17,10 +17,9 @@
 
 class FragTrap {
 public:
-	FragTrap();
 	FragTrap(std::string const & name);
 	FragTrap(FragTrap const & frag);
-	~FragTrap();
+	~FragTrap(void);
 
 	FragTrap &	operator=(FragTrap const & rhs);
 	void		rangedAttack(std::string const & target);
@@ -29,7 +28,8 @@ public:
 	void		beRepaired(unsigned int amount);
 	void		vaulthunter_dot_exe(std::string const & target);
 
-protected:
+private:
+	FragTrap(void);
 	unsigned int			_hitPoints;
 	unsigned int			_maxHitPoints;
 	unsigned int			_energyPoints;

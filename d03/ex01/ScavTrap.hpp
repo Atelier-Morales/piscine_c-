@@ -19,7 +19,7 @@ class ScavTrap {
 public:
 	ScavTrap(std::string const & name);
 	ScavTrap(ScavTrap const & src);
-	~ScavTrap();
+	~ScavTrap(void);
 
 	ScavTrap & operator=(ScavTrap const & rhs);
 	void		rangedAttack(std::string const & target);
@@ -29,6 +29,7 @@ public:
 	void		challengeNewcomer(std::string const & target);
 
 private:
+	ScavTrap(void);
 	unsigned int			_hitPoints;
 	unsigned int			_maxHitPoints;
 	unsigned int			_energyPoints;

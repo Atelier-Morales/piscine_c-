@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   PowerFist.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmorales <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/06 14:44:45 by fmorales          #+#    #+#             */
-/*   Updated: 2015/11/06 14:49:17 by fmorales         ###   ########.fr       */
+/*   Created: 2015/11/07 20:19:20 by fmorales          #+#    #+#             */
+/*   Updated: 2015/11/07 20:19:20 by fmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include "ClapTrap.hpp"
+#include "AWeapon.hpp"
 
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+#ifndef POWERFIST_HPP
+# define POWERFIST_HPP
 
-class ScavTrap : public ClapTrap {
+class PowerFist : virtual public AWeapon {
 public:
-	ScavTrap(std::string const & name);
-	ScavTrap(ScavTrap const & src);
-	~ScavTrap(void);
+	PowerFist();
+	PowerFist(PowerFist const & src);
+	~PowerFist();
 
-	ScavTrap const & operator=(ScavTrap const & rhs);
-	void		challengeNewcomer(std::string const & target);
+	PowerFist const &	operator=(PowerFist const & rhs);
+	void				attack() const;
 
-private:
-	ScavTrap(void);
+private:	
+
 };
 
 #endif

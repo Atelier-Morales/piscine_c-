@@ -43,6 +43,14 @@ FragTrap const &	FragTrap::operator=(FragTrap const & rhs) {
 	return (*this);
 }
 
+void		FragTrap::rangedAttack(std::string const & target) {
+ 	std::cout << "FR4G-TP " << this->_name << " attacks " << target << " at range, causing " << this->_rangedDamage << " points of damage !" << std::endl;
+}
+
+void		FragTrap::meleeAttack(std::string const & target) {
+ 	std::cout << "FR4G-TP " << this->_name << " attacks " << target << " at melee, causing " << this->_meleeDamage << " points of damage !" << std::endl;
+}
+
 void		FragTrap::vaulthunter_dot_exe(std::string const & target) {
 	if (this->_energyPoints < 25) {
 		std::cout << "it's out of energy !" << std::endl;

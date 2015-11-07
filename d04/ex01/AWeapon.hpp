@@ -1,32 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   AWeapon.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmorales <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/06 14:44:45 by fmorales          #+#    #+#             */
-/*   Updated: 2015/11/06 14:49:17 by fmorales         ###   ########.fr       */
+/*   Created: 2015/11/07 20:18:13 by fmorales          #+#    #+#             */
+/*   Updated: 2015/11/07 20:18:15 by fmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include "ClapTrap.hpp"
 
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+#ifndef AWEAPON_HPP
+#define AWEAPON_HPP
 
-class ScavTrap : public ClapTrap {
+class AWeapon {
 public:
-	ScavTrap(std::string const & name);
-	ScavTrap(ScavTrap const & src);
-	~ScavTrap(void);
+	AWeapon(AWeapon const & src);
+	AWeapon(std::string const & name, int apcost, int damage);
+	virtual 		~AWeapon();
 
-	ScavTrap const & operator=(ScavTrap const & rhs);
-	void		challengeNewcomer(std::string const & target);
+	AWeapon const &		operator=(AWeapon const & rhs);
+	std::string const &	getName() const;
+	int 				getAPCost() const;
+	int 				getDamage() const;
+	virtual void 		attack() const = 0;
 
 private:
-	ScavTrap(void);
+	AWeapon();
+
+protected:
+	std::string	_name;
+	int			_cost;
+	int			_damage;
+
 };
 
 #endif

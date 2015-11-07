@@ -15,12 +15,11 @@
 #ifndef FRAGTRAP_HPP
 # define FRAGTRAP_HPP
 
-class FragTrap
-{
+class FragTrap {
 public:
 	FragTrap(std::string const & name);
 	FragTrap(FragTrap const & frag);
-	~FragTrap();
+	~FragTrap(void);
 
 	FragTrap &	operator=(FragTrap const & rhs);
 	void		rangedAttack(std::string const & target);
@@ -30,6 +29,7 @@ public:
 	void		vaulthunter_dot_exe(std::string const & target);
 
 private:
+	FragTrap(void);
 	unsigned int			_hitPoints;
 	unsigned int			_maxHitPoints;
 	unsigned int			_energyPoints;

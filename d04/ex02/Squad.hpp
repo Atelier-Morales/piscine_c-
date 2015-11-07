@@ -1,32 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   Squad.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmorales <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/06 14:44:45 by fmorales          #+#    #+#             */
-/*   Updated: 2015/11/06 14:49:17 by fmorales         ###   ########.fr       */
+/*   Created: 2015/11/07 22:34:19 by fmorales          #+#    #+#             */
+/*   Updated: 2015/11/07 22:34:20 by fmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include "ClapTrap.hpp"
+#include "ISquad.hpp"
 
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+#ifndef SQUAD_HPP
+# define SQUAD_HPP
 
-class ScavTrap : public ClapTrap {
+class Squad : virtual public ISquad {
 public:
-	ScavTrap(std::string const & name);
-	ScavTrap(ScavTrap const & src);
-	~ScavTrap(void);
+	Squad(Squad const & src);
+	virtual ~Squad();
 
-	ScavTrap const & operator=(ScavTrap const & rhs);
-	void		challengeNewcomer(std::string const & target);
+	Squad const &	operator=(Squad const & rhs);
+	int 			getCount() const;
+	ISpaceMarine*	getUnit(int) const;
+	int 			push(ISpaceMarine*);
+
+protected:
+	int				_nb;
 
 private:
-	ScavTrap(void);
+	Squad();
+
 };
 
 #endif

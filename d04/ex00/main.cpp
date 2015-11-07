@@ -1,32 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmorales <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/06 14:44:45 by fmorales          #+#    #+#             */
-/*   Updated: 2015/11/06 14:49:17 by fmorales         ###   ########.fr       */
+/*   Created: 2015/11/07 18:04:41 by fmorales          #+#    #+#             */
+/*   Updated: 2015/11/07 18:04:42 by fmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include "ClapTrap.hpp"
+#include "Sorcerer.hpp"
+#include "Victim.hpp"
+#include "Peon.hpp"
 
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+int	main() {
+	Sorcerer robert("Robert", "the Magnificent");
+	Victim jim("Jimmy");
+	Peon joe("Joe");
+	std::cout << robert << jim << joe;
+	robert.polymorph(jim);
+	robert.polymorph(joe);
 
-class ScavTrap : public ClapTrap {
-public:
-	ScavTrap(std::string const & name);
-	ScavTrap(ScavTrap const & src);
-	~ScavTrap(void);
-
-	ScavTrap const & operator=(ScavTrap const & rhs);
-	void		challengeNewcomer(std::string const & target);
-
-private:
-	ScavTrap(void);
-};
-
-#endif
+	return (0);
+}

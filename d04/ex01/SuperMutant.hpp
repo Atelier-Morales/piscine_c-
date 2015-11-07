@@ -1,32 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   SuperMutant.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmorales <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/06 14:44:45 by fmorales          #+#    #+#             */
-/*   Updated: 2015/11/06 14:49:17 by fmorales         ###   ########.fr       */
+/*   Created: 2015/11/07 20:19:59 by fmorales          #+#    #+#             */
+/*   Updated: 2015/11/07 20:20:00 by fmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include "ClapTrap.hpp"
+#include "Enemy.hpp"
 
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+#ifndef SUPERMUTANT_HPP
+# define SUPERMUTANT_HPP
 
-class ScavTrap : public ClapTrap {
+class SuperMutant : virtual public Enemy {
 public:
-	ScavTrap(std::string const & name);
-	ScavTrap(ScavTrap const & src);
-	~ScavTrap(void);
+	SuperMutant();
+	SuperMutant(SuperMutant const & src);
+	~SuperMutant();
 
-	ScavTrap const & operator=(ScavTrap const & rhs);
-	void		challengeNewcomer(std::string const & target);
+	SuperMutant const &	operator=(SuperMutant const & rhs);
+	void 		takeDamage(int i);
 
 private:
-	ScavTrap(void);
+	
+
 };
 
 #endif

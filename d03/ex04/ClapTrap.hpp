@@ -19,7 +19,7 @@ class ClapTrap {
 public:
 	ClapTrap(std::string const & name);
 	ClapTrap(ClapTrap const & src);
-	~ClapTrap(void);
+	virtual ~ClapTrap(void);
 
 	ClapTrap const &	operator=(ClapTrap const & src);
 	void				rangedAttack(std::string const & target);

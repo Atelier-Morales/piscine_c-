@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   Squad.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmorales <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/06 14:44:45 by fmorales          #+#    #+#             */
-/*   Updated: 2015/11/06 14:49:17 by fmorales         ###   ########.fr       */
+/*   Created: 2015/11/07 22:34:08 by fmorales          #+#    #+#             */
+/*   Updated: 2015/11/07 22:34:10 by fmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include "ClapTrap.hpp"
+#include "Squad.hpp"
 
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+Squad::Squad(Squad const & src) {
+	*this = src;
+	return;
+}
 
-class ScavTrap : public ClapTrap {
-public:
-	ScavTrap(std::string const & name);
-	ScavTrap(ScavTrap const & src);
-	~ScavTrap(void);
+Squad::~Squad() {
+	return ;
+}
 
-	ScavTrap const & operator=(ScavTrap const & rhs);
-	void		challengeNewcomer(std::string const & target);
-
-private:
-	ScavTrap(void);
-};
-
-#endif
+Squad const &	Squad::operator=(Squad const & rhs) {
+	this->_nb = rhs.getCount();
+	return *this;
+}

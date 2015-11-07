@@ -24,10 +24,6 @@ FragTrap::FragTrap(FragTrap const & frag) {
 	return ;
 }
 
-FragTrap::FragTrap() {
-	return ;
-}
-
 FragTrap::~FragTrap() {
 	std::cout << "I'M DEAD I'M DEAD OHMYGOD I'M DEAD!" << std::endl;
 	return ;

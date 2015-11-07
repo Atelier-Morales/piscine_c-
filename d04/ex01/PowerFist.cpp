@@ -1,32 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   PowerFist.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmorales <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/06 14:44:45 by fmorales          #+#    #+#             */
-/*   Updated: 2015/11/06 14:49:17 by fmorales         ###   ########.fr       */
+/*   Created: 2015/11/07 20:19:12 by fmorales          #+#    #+#             */
+/*   Updated: 2015/11/07 20:19:14 by fmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include "ClapTrap.hpp"
+#include "PowerFist.hpp"
 
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+PowerFist::PowerFist() : AWeapon("Power Fist", 8, 50) {
+	return ;
+}
 
-class ScavTrap : public ClapTrap {
-public:
-	ScavTrap(std::string const & name);
-	ScavTrap(ScavTrap const & src);
-	~ScavTrap(void);
+PowerFist::PowerFist(PowerFist const & src) : AWeapon(src) {
+	return ;
+}
 
-	ScavTrap const & operator=(ScavTrap const & rhs);
-	void		challengeNewcomer(std::string const & target);
+PowerFist::~PowerFist() {
+	return ;
+}
 
-private:
-	ScavTrap(void);
-};
+PowerFist const &	PowerFist::operator=(PowerFist const & rhs) {
+	AWeapon::operator=(rhs);
+	return (*this);
+}
 
-#endif
+void				PowerFist::attack() const {
+	std::cout << "* pschhh... SBAM! *" << std::endl;
+	return ;
+}

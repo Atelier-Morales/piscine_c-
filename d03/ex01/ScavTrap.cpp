@@ -44,11 +44,11 @@ ScavTrap & 	ScavTrap::operator=(ScavTrap const & rhs) {
 }
 
 void		ScavTrap::rangedAttack(std::string const & target) {
- 	std::cout << "FR4G-TP " << this->_name << " attacks " << target << " at range, causing " << this->_rangedDamage << " points of damage !" << std::endl;
+ 	std::cout << "FR4G-TP " << this->_name << " throwing a bullet storm at " << target << " inflicting " << this->_rangedDamage << " points of damage !" << std::endl;
  }
 
   void		ScavTrap::meleeAttack(std::string const & target) {
- 	std::cout << "FR4G-TP " << this->_name << " attacks " << target << " at melee, causing " << this->_meleeDamage << " points of damage !" << std::endl;
+ 	std::cout << "FR4G-TP " << this->_name << " stabbing " << target << " multiple times inflicting " << this->_meleeDamage << " points of damage !" << std::endl;
  }
 
  void		ScavTrap::takeDamage(unsigned int amount) {
@@ -56,20 +56,20 @@ void		ScavTrap::rangedAttack(std::string const & target) {
  		return ;
  	amount -= this->_armorDamageReduction;
  	if (amount < this->_hitPoints) {
- 		std::cout << "That looks like it hurts! I just lost " << amount << " HP!" << std::endl;
+ 		std::cout << "I can handle that, it's just " << amount << " HP!" << std::endl;
  		this->_hitPoints -= amount;
  		std::cout << this->_hitPoints << " HP!" << std::endl;
  	}
  	else {
  		this->_hitPoints = 0;
- 		std::cout << amount << " DAMAGES ! I'M DEAD I'M DEAD OHMYGOD I'M DEAD!" << std::endl;
+ 		std::cout << amount << " DAMAGES ! I DON'T FEEL MY LEGS!! --shutting down device" << std::endl;
  		std::cout << this->_hitPoints << " HP!" << std::endl;
  	}
  	return ;
  }
 
  void		ScavTrap::beRepaired(unsigned int amount) {
- 	std::cout << "Sweet life juice!" << std::endl;
+ 	std::cout << "I feel reborn..." << std::endl;
  	if (this->_hitPoints + amount > this->_maxHitPoints) {
  		this->_hitPoints = this->_maxHitPoints;
  		std::cout << this->_hitPoints << " HP!" << std::endl;

@@ -13,6 +13,7 @@
 #include <iostream>
 #include "FragTrap.hpp"
 #include "ScavTrap.hpp"
+#include "NinjaTrap.hpp"
 
 int	main() {
 	FragTrap	FR4G("Zorg");
@@ -33,9 +34,18 @@ int	main() {
 	SC4V.meleeAttack("Fonzie");
 	SC4V.takeDamage(90);
 	SC4V.beRepaired(100);
-	SC4V.takeDamage(110);
+	SC4V.takeDamage(90);
 
 	SC4V.challengeNewcomer("la schneck");
 	SC4V.challengeNewcomer("la gazelle");
+
+	NinjaTrap	N1Nj4("Francis");
+
+	N1Nj4.rangedAttack("Albert");
+	N1Nj4.meleeAttack("Marco");
+
+	N1Nj4.ninjaShoebox(SC4V);
+	N1Nj4.ninjaShoebox(FR4G);
+	N1Nj4.ninjaShoebox(N1Nj4);
 	return (0);
 }
