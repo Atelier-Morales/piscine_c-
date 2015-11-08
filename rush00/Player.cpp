@@ -1,3 +1,15 @@
+// ************************************************************************** //
+//                                                                            //
+//                                                        :::      ::::::::   //
+//   Player.cpp                                         :+:      :+:    :+:   //
+//                                                    +:+ +:+         +:+     //
+//   By: fmorales <marvin@42.fr>                    +#+  +:+       +#+        //
+//                                                +#+#+#+#+#+   +#+           //
+//   Created: 2015/11/08 21:19:07 by fmorales          #+#    #+#             //
+//   Updated: 2015/11/08 21:19:10 by fmorales         ###   ########.fr       //
+//                                                                            //
+// ************************************************************************** //
+
 #include "Player.hpp"
 
 Player::Player(void) : name("Player"), score(0), life(3), level(0) { return ;}
@@ -21,22 +33,15 @@ std::string Player::getName(void) const {
 	return this->name;
 }
 
-// void Player::equip(AWeapon* weapon) {
-// 	this->weapon = weapon;
-// 	return ;
-// }
+void Player::setLife(int y) {
+	this->life = y;
+	return ;
+}
 
-// void Player::attack(Enemy* enemy) {
-// 	if (getWeapon() != NULL) {
-// 		if (getAP() > weapon->getAPCost()) {
-// 			std::cout<<name<<" attacks "<< enemy->getType()<<" with a "<<weapon->getName()<<std::endl;
-// 			weapon->attack();
-// 			enemy->takeDamage(weapon->getDamage());
-// 			this->AP -= weapon->getAPCost();
-// 		}
-// 	}
-// 	return ;
-// }
+void Player::setLevel(int y) {
+	this->level = y;
+	return ;
+}
 
 void Player::setPosX(int x) {
 	this->posX = x;
@@ -55,6 +60,11 @@ void Player::setMaxX(int x) {
 
 void Player::setMaxY(int y) {
 	this->maxY = y;
+	return ;
+}
+
+void Player::setScore(int y) {
+	this->score = y;
 	return ;
 }
 
@@ -85,6 +95,15 @@ int Player::getLife(void) const {
 int Player::getLevel(void) const {
 	return this->level;
 }
+
+void Player::hit(void) {
+	if (getLife() > 1)
+		this->life -= 1;
+	else
+		this->life = 0;
+}
+
+
 // int Player::getAP(void) const {
 // 	return this->AP;
 // }

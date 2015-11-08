@@ -1,20 +1,38 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Enemy.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fmorales <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2015/11/08 21:17:02 by fmorales          #+#    #+#             */
+/*   Updated: 2015/11/08 21:17:06 by fmorales         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Enemy.hpp"
 
-Enemy::Enemy(void) : name("\\x|x/"), posX(5), posY(5) { return ;}
+Enemy::Enemy(void) : name("\\x|x/") { return ;}
 
-// Enemy::Enemy(int hp, std::string const & type) : hp(hp), type(type) { return; }
 
 Enemy::~Enemy(void) { return ;}
 
-// Enemy::Enemy(Enemy const & src) {
-// 	*this = src;
-// 	return ;
-// }
+Enemy::Enemy(std::string const & name1, std::string const & name2, int color) : name(name1), name2(name2)
+{
+	this->color = color;
+	return ;
+}
+
 
 Enemy & Enemy::operator=(Enemy const & src) {
 	this->score = src.score;
 	// this->type = src.type;
 	return (*this);
+}
+
+void Enemy::setColor(int color) {
+	this->color = color;
+	return ;
 }
 
 void Enemy::setPosX(int x) {
@@ -37,6 +55,23 @@ void Enemy::setMaxY(int y) {
 	return ;
 }
 
+void Enemy::setExist(int y) {
+	this->exist = y;
+	return ;
+}
+
+void Enemy::setName(std::string const & name) {
+	this->name = name;
+}
+
+void Enemy::setName2(std::string const & name2) {
+	this->name2 = name2;
+}
+
+std::string	Enemy::getName2(void) const {
+	return this->name2;
+}
+
 int Enemy::getPosX(void) const {
 	return this->posX;
 }
@@ -51,6 +86,14 @@ int Enemy::getMaxX(void) const {
 
 int Enemy::getMaxY(void) const {
 	return this->maxY;
+}
+
+int Enemy::getExist(void) const {
+	return this->exist;
+}
+
+int Enemy::getColor(void) const {
+	return this->color;
 }
 
 std::string Enemy::getName(void) const {

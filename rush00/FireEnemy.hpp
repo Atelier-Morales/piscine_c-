@@ -1,65 +1,57 @@
 // ************************************************************************** //
 //                                                                            //
 //                                                        :::      ::::::::   //
-//   Player.hpp                                         :+:      :+:    :+:   //
+//   FireEnemy.hpp                                      :+:      :+:    :+:   //
 //                                                    +:+ +:+         +:+     //
 //   By: fmorales <marvin@42.fr>                    +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
-//   Created: 2015/11/08 21:19:18 by fmorales          #+#    #+#             //
-//   Updated: 2015/11/08 21:19:21 by fmorales         ###   ########.fr       //
+//   Created: 2015/11/08 21:18:25 by fmorales          #+#    #+#             //
+//   Updated: 2015/11/08 21:18:29 by fmorales         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
-#ifndef PLAYER_H
-# define PLAYER_H
+#ifndef FIREENEMY_H
+# define FIREENEMY_H
 # include <iostream>
 # include <iomanip>
 # include <cstdlib>
+# include "Fire.hpp"
 
-class Player {
+class FireEnemy : public Fire {
 
 protected:
-	std::string name;
 	int posX;
 	int posY;
 	int maxX;
 	int maxY;
-	int score;
-	int life;
-	int level;
+	int exist;
+	// int damage
 	// int AP;
 	// AWeapon* weapon;
 	// Enemy* enemy;
 
 public:
-	Player(void);
-	Player(std::string const & name);
-	~Player(void);
-	Player(Player const & src);
-	Player & operator=(Player const & src);
-	std::string virtual getName(void) const;
+	FireEnemy(void);
+	// FireEnemy(int x, int y);
+	~FireEnemy(void);
+	FireEnemy(FireEnemy const & src);
+	FireEnemy & operator=(FireEnemy const & src);
 	void setPosX(int x);
 	void setPosY(int y);
 	void setMaxX(int x);
 	void setMaxY(int y);
-	void setScore(int y);
-	void setLife(int y);
-	void setLevel(int y);
+	void setExist(int y);
 	int getMaxX(void) const;
 	int getMaxY(void) const;
 	int getPosX(void) const;
 	int getPosY(void) const;
-	int getScore(void) const;
-	int getLife(void) const;
-	int getLevel(void) const;
-	void hit(void);
+	int getExist(void) const;
+	// void attack(Enemy const & src);
 	// void recoveryAP(void);
 	// int getAP(void) const ;
 	// void equip(AWeapon* weapon);
 	// void attack(Enemy* enemy);
 	// AWeapon* getWeapon(void) const;
 };
-
-// std::ostream & operator<<(std::ostream & o, Player & src);
 
 #endif
