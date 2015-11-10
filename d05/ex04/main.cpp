@@ -13,54 +13,60 @@
 #include <iostream>
 #include <stdexcept>
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
+#include "Intern.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "OfficeBlock.hpp"
+
 
 int main(void) {
+    Intern idiotOne;
+    Bureaucrat hermes = Bureaucrat("Hermes Conrad", 37);
+    Bureaucrat bob = Bureaucrat("Bobby Bobson", 123);
+    OfficeBlock ob;
+    ob.setIntern(idiotOne);
+    ob.setSigner(bob);
+    ob.setExecutor(hermes);
+
+    std::cout << "signer: " << ob.getSignerName() << std::endl;
+    std::cout << "executor: " << ob.getExecutorName() << std::endl;
+
     try {
-        Bureaucrat A("Fernan", 12);
-        std::cout << A << std::endl;
-    } catch (std::exception const & e) {
+        ob.doBureaucracy("mutant pig termination", "Pigley");
+    }
+    catch (Intern::UnknownForm & e) {
+        std::cout << e.what() << std::endl;
+    }
+    catch (std::exception & e) {
         std::cout << e.what() << std::endl;
     }
     try {
-        Bureaucrat B("Roger", -12);
-        std::cout << B << std::endl;
-    } catch (std::exception const & e) {
+        ob.doBureaucracy("presidential pardon request", "Ron");
+    }
+    catch (Intern::UnknownForm & e) {
+        std::cout << e.what() << std::endl;
+    }
+    catch (std::exception & e) {
         std::cout << e.what() << std::endl;
     }
     try {
-        Bureaucrat C("Maurice", 222);
-        std::cout << C << std::endl;
-    } catch (std::exception const & e) {
+        ob.doBureaucracy("robotomy request", "Robert");
+    }
+    catch (Intern::UnknownForm & e) {
+        std::cout << e.what() << std::endl;
+    }
+    catch (std::exception & e) {
         std::cout << e.what() << std::endl;
     }
     try {
-        Bureaucrat D("Jerome", 2);
-        std::cout << D << std::endl;
-        D.increaseGrade();
-        std::cout << D << std::endl;
-        D.increaseGrade();
-        std::cout << D << std::endl;
-    } catch (std::exception const & e) {
+        ob.doBureaucracy("shrubbery creation request", "Robert");
+    }
+    catch (Intern::UnknownForm & e) {
         std::cout << e.what() << std::endl;
     }
-    try {
-        Bureaucrat E("Marcel", 149);
-        std::cout << E << std::endl;
-        E.decreaseGrade();
-        std::cout << E << std::endl;
-        E.decreaseGrade();
-        std::cout << E << std::endl;
-    } catch (std::exception const & e) {
-        std::cout << e.what() << std::endl;
-    }
-    try {
-        Bureaucrat F("Firmin", 100);
-        std::cout << F << std::endl;
-        F.decreaseGrade(50);
-        std::cout << F << std::endl;
-        F.increaseGrade(160);
-        std::cout << F << std::endl;
-    } catch (std::exception const & e) {
+    catch (std::exception & e) {
         std::cout << e.what() << std::endl;
     }
     return 0;
