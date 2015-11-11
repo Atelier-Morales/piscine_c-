@@ -96,5 +96,6 @@ int		main(void)
 	std::cout << data->s1 << std::endl;
 	std::cout << data->n << std::endl;
 	std::cout << data->s2 << std::endl;
+	delete data;
 	return 0;
 }
